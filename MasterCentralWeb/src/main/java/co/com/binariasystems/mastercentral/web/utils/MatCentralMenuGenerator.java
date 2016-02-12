@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import co.com.binariasystems.fmw.security.FMWSecurityException;
 import co.com.binariasystems.fmw.security.auditory.AuditoryDataProvider;
 import co.com.binariasystems.fmw.vweb.uicomponet.treemenu.MenuElement;
-import co.com.binariasystems.mastercentral.business.bean.SecurityBean;
+import co.com.binariasystems.mastercentral.business.bean.security.RealmBusinessBean;
 import co.com.binariasystems.orion.model.dto.AccessTokenDTO;
 import co.com.binariasystems.orion.model.dto.ModuleDTO;
 import co.com.binariasystems.orion.model.dto.ResourceDTO;
@@ -19,7 +19,7 @@ import co.com.binariasystems.orion.model.dto.ResourceDTO;
 @Component
 public class MatCentralMenuGenerator {
 	@Autowired
-	private SecurityBean securityBean;
+	private RealmBusinessBean securityBean;
 	@Autowired
 	private AuditoryDataProvider<AccessTokenDTO> auditoryDataProvider;
 	

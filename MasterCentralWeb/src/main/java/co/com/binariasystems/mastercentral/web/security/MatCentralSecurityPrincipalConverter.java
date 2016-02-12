@@ -9,7 +9,7 @@ import co.com.binariasystems.fmw.security.FMWSecurityException;
 import co.com.binariasystems.fmw.security.authc.SecurityPrincipalConverter;
 import co.com.binariasystems.fmw.security.util.SecConstants;
 import co.com.binariasystems.fmw.util.messagebundle.MessageBundleManager;
-import co.com.binariasystems.mastercentral.business.bean.RealmBusinessBean;
+import co.com.binariasystems.mastercentral.business.bean.security.RealmBusinessBean;
 import co.com.binariasystems.orion.model.dto.UserDTO;
 
 @Component

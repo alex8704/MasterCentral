@@ -250,6 +250,12 @@
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>co.com.binariasystems</groupId>
+			<artifactId>MasterCentralSharedBusiness</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
 		<!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -335,5 +341,6 @@
 		<module>MasterCentralWeb</module>
 		<module>MasterCentralProd</module>
 		<module>MasterCentralWidgetset</module>
+		<module>MasterCentralBusiness</module>
 	</modules>
 </project>

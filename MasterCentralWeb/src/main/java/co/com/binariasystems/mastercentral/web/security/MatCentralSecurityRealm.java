@@ -26,8 +26,7 @@ import org.apache.shiro.util.ByteSource;
 import co.com.binariasystems.commonsmodel.enumerated.Application;
 import co.com.binariasystems.fmw.ioc.IOCHelper;
 import co.com.binariasystems.fmw.security.FMWSecurityException;
-import co.com.binariasystems.mastercentral.business.bean.RealmBusinessBean;
-import co.com.binariasystems.mastercentral.business.bean.SecurityBean;
+import co.com.binariasystems.mastercentral.business.bean.security.RealmBusinessBean;
 import co.com.binariasystems.orion.model.dto.AccessTokenDTO;
 import co.com.binariasystems.orion.model.dto.AuthenticationDTO;
 import co.com.binariasystems.orion.model.dto.ResourceDTO;
@@ -42,7 +41,7 @@ public class MatCentralSecurityRealm extends AuthorizingRealm {
 	private Application application;
 
 	public MatCentralSecurityRealm() {
-		businessBean = IOCHelper.getBean(SecurityBean.class);
+		businessBean = IOCHelper.getBean(RealmBusinessBean.class);
 		setCredentialsMatcher(new CredentialsMatcher() {
 			/**
 			 * Dummy credentials matcher because, Orion perform all validations

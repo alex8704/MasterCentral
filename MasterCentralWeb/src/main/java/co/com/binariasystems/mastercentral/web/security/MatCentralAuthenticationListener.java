@@ -10,8 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import co.com.binariasystems.fmw.ioc.IOCHelper;
 import co.com.binariasystems.fmw.security.FMWSecurityException;
-import co.com.binariasystems.mastercentral.business.bean.RealmBusinessBean;
-import co.com.binariasystems.mastercentral.business.bean.SecurityBean;
+import co.com.binariasystems.mastercentral.business.bean.security.RealmBusinessBean;
 import co.com.binariasystems.orion.model.dto.AccessTokenDTO;
 
 public class MatCentralAuthenticationListener implements AuthenticationListener{
@@ -19,7 +18,7 @@ public class MatCentralAuthenticationListener implements AuthenticationListener{
 	private RealmBusinessBean businessBean;
 	
 	public MatCentralAuthenticationListener(){
-		businessBean = IOCHelper.getBean(SecurityBean.class);
+		businessBean = IOCHelper.getBean(RealmBusinessBean.class);
 	}
 	
 	

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import co.com.binariasystems.commonsmodel.constants.SystemConstants;
 import co.com.binariasystems.fmw.constants.FMWConstants;
 import co.com.binariasystems.fmw.entity.util.FMWEntityConstants;
 import co.com.binariasystems.fmw.ioc.IOCHelper;
@@ -26,16 +27,16 @@ import co.com.binariasystems.mastercentral.web.utils.MatCentralWebConstants;
 
 public class MatCentralContextListener implements ServletContextListener, MatCentralWebConstants{
 	private static final Logger LOGGER = LoggerFactory.getLogger(MatCentralContextListener.class);
-	private static final String PARAM_CREATE_DATAMODEL = MatCentralContextListener.class.getSimpleName()+".createDataModelIfNotExist";
+	//private static final String PARAM_CREATE_DATAMODEL = MatCentralContextListener.class.getSimpleName()+".createDataModelIfNotExist";
 
 	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  {
     	PropertiesManager properties = PropertiesManager.forPath("/configuration.properties");
-    	System.setProperty(MatCentralConstants.APPLICATION_VERSION_PROPERTY, properties.getString(MatCentralConstants.APPLICATION_VERSION_PROPERTY));
-    	System.setProperty(MatCentralConstants.APPLICATION_NAME_PROPERTY, properties.getString(MatCentralConstants.APPLICATION_NAME_PROPERTY));
-    	System.setProperty(MatCentralConstants.MAIN_DATASOURCE_PROPERTY, properties.getString(MatCentralConstants.MAIN_DATASOURCE_PROPERTY));
+    	System.setProperty(SystemConstants.APP_VERSION_PROP, properties.getString(MatCentralConstants.APP_VERSION_CONFPROPERTY));
+    	System.setProperty(SystemConstants.APP_NAME_PROP, properties.getString(MatCentralConstants.APP_NAME_CONFPROPERTY));
+    	System.setProperty(SystemConstants.MAIN_DSOURCE_PROP, properties.getString(MatCentralConstants.MAIN_DSOURCE_CONFPROPERTY));
     	
     	IOCHelper.setProvider(SpringIOCProvider.configure(WebApplicationContextUtils.getRequiredWebApplicationContext(sce.getServletContext())));
     	DBUtil.init(IOCHelper.getBean(MatCentralBusinessUtils.getMainDataSourceName(), DataSource.class));

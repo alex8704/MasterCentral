@@ -20,11 +20,6 @@
 		<param-value>/WEB-INF/config/shiro/shiro.ini</param-value>
 	</context-param>
 	<context-param>
-		<description>Indica si se debe crear automaticamente el modelo de datos si no existe</description>
-		<param-name>OrionContextListener.createDataModelIfNotExist</param-name>
-		<param-value>true</param-value>
-	</context-param>
-	<context-param>
 		<param-name>hsqlRunner.serverConfigFile</param-name>
 		<param-value>/co/com/binariasystems/mastercentral/web/resources/properties/hsqlServerConfig.properties</param-value>
 	</context-param>
