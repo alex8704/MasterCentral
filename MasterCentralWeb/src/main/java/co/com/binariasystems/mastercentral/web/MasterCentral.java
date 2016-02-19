@@ -45,7 +45,7 @@ public class MasterCentral extends UI implements MatCentralWebConstants {
 	
 	private String getApplicationTitle(){
 		MessageBundleManager messages = MessageBundleManager.forPath(resources.getMessageFilePath(MAIN_MESSAGES_FILE));
-		MessageFormat titleFmt = new MessageFormat(LocaleMessagesUtil.getLocalizedMessage(messages, "Orion.applicationTitle"));
+		MessageFormat titleFmt = new MessageFormat(LocaleMessagesUtil.getLocalizedMessage(messages, "MasterCentral.applicationTitle"));
 		return titleFmt.format(new String[]{MatCentralBusinessUtils.getApplicationName(), MatCentralBusinessUtils.getApplicationVersion()});
 	}
 	
