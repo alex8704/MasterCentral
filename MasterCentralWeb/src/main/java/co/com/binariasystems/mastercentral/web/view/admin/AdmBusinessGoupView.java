@@ -161,6 +161,11 @@ public class AdmBusinessGoupView extends AbstractView{
 			button.addClickListener(eventListener);
 	}
 	
+	private void toggleActionButtonsState(){
+		editBtn.setEnabled(businessGroup.getBusinessGroupId() != null);
+		deleteBtn.setEnabled(businessGroup.getBusinessGroupId() != null);
+	}
+	
 	private class AdmBusinessGroupViewEventListener implements ClickListener, PageDataTarget<BusinessGroupDTO>{
 		@Override public void buttonClick(ClickEvent event) {
 			if(confirmMsgDialogMapping.containsKey(event.getButton()))
@@ -171,6 +176,7 @@ public class AdmBusinessGoupView extends AbstractView{
 		public void refreshPageData(List<BusinessGroupDTO> pageData) {
 			if(pageData.isEmpty()) return;
 			VWebUtils.resetBeanItemDS(fieldGroup.getItemDataSource(), pageData.get(0));
+			toggleActionButtonsState();
 		}
 		
 	}

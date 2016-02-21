@@ -72,13 +72,14 @@ public class AdmBusinessGoupViewController extends AbstractViewController {
 	
 	@OnLoad
 	public void onLoad(){
-		findAll();
+		pager.reset();
 		form.initFocus();
 	}
 	
 	@OnUnLoad
 	public void onUnLoad(){
 		cleanForm();
+		toggleActionButtonsState();
 	}
 	
 	private void cleanForm(){
@@ -87,7 +88,7 @@ public class AdmBusinessGoupViewController extends AbstractViewController {
 	}
 	
 	private void findAll(){
-		pager.setFilterDto(null);
+		pager.setFilterDto(new BusinessGroupDTO());
 	}
 	
 	private void saveBtnClick() throws FormValidationException{
@@ -111,8 +112,8 @@ public class AdmBusinessGoupViewController extends AbstractViewController {
 	
 	private void deleteBtnClick(){
 		businessGroupBean.delete(businessGroup);
-		findAll();
 		cleanForm();
+		findAll();
 		showSuccessOperationNotification((String)deleteBtn.getData());
 	}
 	
@@ -170,7 +171,7 @@ public class AdmBusinessGoupViewController extends AbstractViewController {
 
 		@Override
 		public ListPage<BusinessGroupDTO> loadPage(PageChangeEvent<BusinessGroupDTO> event) throws FMWUncheckedException {
-			return pagerLoadPage(event);
+			return event.getFilterDTO() != null ? pagerLoadPage(event) : new ListPage<BusinessGroupDTO>();
 		}
 		
 	}
