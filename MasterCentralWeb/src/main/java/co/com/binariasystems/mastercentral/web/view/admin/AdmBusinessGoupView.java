@@ -133,15 +133,12 @@ public class AdmBusinessGoupView extends AbstractView{
 	
 	@Init
 	public void init(){		
-		saveBtn.withIcon(FontAwesome.SAVE)
-		.withData("create");
+		saveBtn.withData("create");
 		
-		editBtn.withIcon(FontAwesome.EDIT)
-		.withData("edit")
+		editBtn.withData("edit")
 		.disable();
 		
-		deleteBtn.withIcon(FontAwesome.TRASH)
-		.withData("delete")
+		deleteBtn.withData("delete")
 		.disable();
 		
 		notificationMsgMapping.put((String)saveBtn.getData(), getText("common.message.success_complete_creation.notification"));
