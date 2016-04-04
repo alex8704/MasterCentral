@@ -25,6 +25,7 @@ import co.com.binariasystems.fmw.vweb.uicomponet.pager.PageChangeHandler;
 import co.com.binariasystems.fmw.vweb.util.VWebUtils;
 import co.com.binariasystems.mastercentral.shared.business.bean.BusinessGroupBean;
 import co.com.binariasystems.mastercentral.shared.business.dto.BusinessGroupDTO;
+import co.com.binariasystems.mastercentral.shared.business.utils.Utils;
 import co.com.binariasystems.orion.model.dto.AccessTokenDTO;
 
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
@@ -136,7 +137,7 @@ public class AdmBusinessGoupViewController extends AbstractViewController {
 	}
 	
 	private ListPage<BusinessGroupDTO> pagerLoadPage(PageChangeEvent<BusinessGroupDTO> event){
-		return businessGroupBean.findAll(event.getFilterDTO(), event.getPage(), event.getRowsByPage() * event.getPagesPerGroup());
+		return Utils.pageToListPage(businessGroupBean.findAll(event.getFilterDTO(), event.getPageRequest()));
 	}
 	
 	private void toggleActionButtonsState(){

@@ -25,6 +25,7 @@ import co.com.binariasystems.fmw.vweb.uicomponet.pager.PageChangeHandler;
 import co.com.binariasystems.fmw.vweb.util.VWebUtils;
 import co.com.binariasystems.mastercentral.shared.business.bean.CompanyBean;
 import co.com.binariasystems.mastercentral.shared.business.dto.CompanyDTO;
+import co.com.binariasystems.mastercentral.shared.business.utils.Utils;
 import co.com.binariasystems.orion.model.dto.AccessTokenDTO;
 
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
@@ -84,6 +85,7 @@ public class AdmCompanyViewController extends AbstractViewController {
 	@OnUnLoad
 	public void onUnLoad(){
 		cleanForm();
+		payrollPeriodTypeCmb.removeAllItems();
 		toggleActionButtonsState();
 	}
 	
@@ -145,7 +147,7 @@ public class AdmCompanyViewController extends AbstractViewController {
 	}
 	
 	private ListPage<CompanyDTO> pagerLoadPage(PageChangeEvent<CompanyDTO> event) {
-		return companyBean.findAll(event.getFilterDTO(), event.getPage(), event.getRowsByPage() * event.getPagesPerGroup());
+		return Utils.pageToListPage(companyBean.findAll(event.getFilterDTO(), event.getPageRequest()));
 	}
 	
 	private void toggleActionButtonsState(){

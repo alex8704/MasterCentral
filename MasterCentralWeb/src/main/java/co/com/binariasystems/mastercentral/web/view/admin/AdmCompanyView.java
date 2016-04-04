@@ -17,6 +17,7 @@ import co.com.binariasystems.fmw.vweb.uicomponet.MessageDialog;
 import co.com.binariasystems.fmw.vweb.uicomponet.MessageDialog.Type;
 import co.com.binariasystems.fmw.vweb.uicomponet.Pager;
 import co.com.binariasystems.fmw.vweb.uicomponet.SearcherField;
+import co.com.binariasystems.fmw.vweb.uicomponet.SortableBeanContainer;
 import co.com.binariasystems.fmw.vweb.uicomponet.builders.ButtonBuilder;
 import co.com.binariasystems.fmw.vweb.uicomponet.builders.TextFieldBuilder;
 import co.com.binariasystems.fmw.vweb.util.GridUtils.GenericStringPropertyGenerator;
@@ -32,7 +33,6 @@ import co.com.binariasystems.mastercentral.web.utils.CompanyTaxIdColumnGenerator
 
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
 import com.vaadin.data.fieldgroup.PropertyId;
-import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.GeneratedPropertyContainer;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.shared.ui.grid.HeightMode;
@@ -122,7 +122,7 @@ public class AdmCompanyView extends AbstractView{
 		payrollBankTxt = new SearcherField<BankDTO>(BankDTO.class);
 		economicActivityTxt = new SearcherField<EconomicActivityDTO>(EconomicActivityDTO.class);
 		addressTxt = new AddressEditorField<AddressDTO>(AddressDTO.class);
-		gridContainer = new GeneratedPropertyContainer(new BeanItemContainer<CompanyDTO>(CompanyDTO.class));
+		gridContainer = new GeneratedPropertyContainer(new SortableBeanContainer<CompanyDTO>(CompanyDTO.class));
 		companiesGrid = new Grid();
 		pager = new Pager<CompanyDTO, CompanyDTO>();
 		saveBtn = new ButtonBuilder(FontAwesome.SAVE);
@@ -179,6 +179,7 @@ public class AdmCompanyView extends AbstractView{
 	
 	@Init
 	public void init(){
+		form.setWidth(Dimension.percent(90.0f));
 		saveBtn.withData("create");
 		
 		editBtn.withData("edit")

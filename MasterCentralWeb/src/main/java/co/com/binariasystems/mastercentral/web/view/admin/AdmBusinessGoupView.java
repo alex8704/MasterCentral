@@ -132,7 +132,8 @@ public class AdmBusinessGoupView extends AbstractView{
 	}
 	
 	@Init
-	public void init(){		
+	public void init(){	
+		form.setWidth(Dimension.percent(90.0f));
 		saveBtn.withData("create");
 		
 		editBtn.withData("edit")
